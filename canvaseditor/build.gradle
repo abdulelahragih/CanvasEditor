@@ -1,6 +1,21 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.outsbook'
+            artifactId = 'sample'
+            version = "1.0.0-SNAPSHOT"
+            from components.java
+            pom {
+                description = 'A description of my library'
+            }
+        }
+    }
+}
 
 android {
     compileSdkVersion 29

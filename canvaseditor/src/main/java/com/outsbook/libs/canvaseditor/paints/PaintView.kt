@@ -32,7 +32,7 @@ internal class PaintView (context: Context, private val paintViewListener: Paint
     private var currentY = 0f
     private var isDrawPath = false
     private val touchTolerance = ViewConfiguration.get(context).scaledTouchSlop
-    private val backgroundColor = Color.TRANSPARENT
+    private var backgroundColor = Color.TRANSPARENT
     private lateinit var extraCanvas: Canvas
     lateinit var extraBitmap: Bitmap
 
