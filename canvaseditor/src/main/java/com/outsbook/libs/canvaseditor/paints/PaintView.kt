@@ -19,6 +19,7 @@ import com.outsbook.libs.canvaseditor.models.DrawObject
 import com.outsbook.libs.canvaseditor.models.PathAndPaint
 import com.outsbook.libs.canvaseditor.stickers.Sticker
 import kotlin.math.abs
+import android.graphics.Color
 
 internal class PaintView (context: Context, private val paintViewListener: PaintViewListener) :
     FrameLayout(context) {
@@ -31,7 +32,7 @@ internal class PaintView (context: Context, private val paintViewListener: Paint
     private var currentY = 0f
     private var isDrawPath = false
     private val touchTolerance = ViewConfiguration.get(context).scaledTouchSlop
-
+    private val backgroundColor = Color.TRANSPARENT
     private lateinit var extraCanvas: Canvas
     lateinit var extraBitmap: Bitmap
 
@@ -48,7 +49,7 @@ internal class PaintView (context: Context, private val paintViewListener: Paint
     fun initCanvas() {
         extraBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         extraCanvas = Canvas(extraBitmap)
-        extraCanvas.drawColor(ContextCompat.getColor(context, android.R.color.white))
+        extraCanvas.drawColor(backgroundColor)
         invalidate()
     }
 
